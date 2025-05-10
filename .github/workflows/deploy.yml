@@ -25,12 +25,12 @@ jobs:
         run: npm run build
 
       - name: Upload via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
-          protocol: sftp
-          local-dir: ./out/
-          server-dir: ${{ secrets.FTP_PATH }}
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT }}
+          source: "./out/*"
+          target: ${{ secrets.SFTP_PATH }}
+          strip_components: 1
