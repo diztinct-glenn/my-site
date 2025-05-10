@@ -24,13 +24,13 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Upload via FTP
+      - name: Upload via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          protocol: ftp
+          protocol: sftp
           local-dir: ./out/
           server-dir: ${{ secrets.FTP_PATH }}
