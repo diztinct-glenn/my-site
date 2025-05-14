@@ -72,19 +72,19 @@ export default function Home() {
           <div className="columns small-12">
             <div className="c-item is-autoplay inview--visible" data-inview="">
               <figure className="c-item__media">
-                <Link href="/work/project-1">
+                <Link href="/work/project-3">
                   <div className="c-item__image">
                     <div className="intrinsic-image" style={{ paddingBottom: '60%' }}>
-                      <img src="https://placehold.co/600x400?text=Project+1" alt="Project 1" />
+                      <img src="https://placehold.co/600x400?text=Project+1" alt="Project 3" />
                     </div>
                   </div>
                 </Link>
               </figure>
               <div className="c-item__content">
                 <h2 className="c-item__title">
-                  <Link href="/work/project-1">Project 1</Link>
+                  <Link href="/work/project-3">Project 3</Link>
                 </h2>
-                <div className="c-item__text">Short description for Project 1.</div>
+                <div className="c-item__text">Short description for Project 3.</div>
               </div>
             </div>
           </div>
