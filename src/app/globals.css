@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #DDD0C8;
+  --foreground: #323232;
+  --accent: #2563eb; /* Tailwind blue-600 */
+  --muted: #9ca3af;  /* Tailwind gray-400 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #323232;
+    --foreground: #DDD0C8;
+    --accent: #60a5fa; /* Tailwind blue-400 for dark mode */
+    --muted: #6b7280;  /* Tailwind gray-500 for dark mode */
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+  background: #fff;
+  color: #111;
+  min-height: 100vh;
+}
+
+.homepage-root {
+  min-height: 100vh;
+  display: flex;
+}
+
+.site-main {
+  padding-bottom: 4rem;
+}
+
+/* Project grid */
+.site-main .grid a {
+  text-decoration: none;
+  outline: none;
+  transition: box-shadow 0.2s;
+  border-radius: 0.5rem;
+}
+.site-main .grid a:focus {
+  box-shadow: 0 0 0 2px #111;
+}
+
+/* Responsive nav */
+@media (min-width: 768px) {
+  .homepage-root {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 767px) {
+  .homepage-root {
+    flex-direction: column;
+  }
+}
+
+.set-height {
+  height: 60px;
+}
+
+
+@media (min-width: 768px) {
+  .l-header {
+    height: 100vh;
+  }
 }
