@@ -24,14 +24,13 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Upload via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Upload via SFTP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: 88.223.85.136
-          username: u835324057
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          port: 21
-          protocol: ftp
-          local-dir: "./out/"
-          server-dir: "/public_html/"
-          dangerous-clean-slate: true
+          port: ${{ secrets.SFTP_PORT }}
+          source: "./out/*"
+          target: "public_html"
+          debug: true
