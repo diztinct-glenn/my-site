@@ -40,7 +40,7 @@ export default function Home() {
               </figure>
               <div className="c-item__content">
                 <h2 className="c-item__title">
-                  <Link href="/work/project-1">Project 2</Link>
+                  <Link href="/work/project-2">Project 2</Link>
                 </h2>
                 <div className="c-item__text">Short description for Project 2.</div>
               </div>
