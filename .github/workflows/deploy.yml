@@ -31,6 +31,6 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port: ${{ secrets.SFTP_PORT }}
-          source: "./out/index.html"
-          target: "/public_html/index.html"
+          source: "./out/*"
+          target: ${{ secrets.SFTP_PATH }}
           debug: true
