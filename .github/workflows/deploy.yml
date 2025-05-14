@@ -33,5 +33,5 @@ jobs:
           port: ${{ secrets.SFTP_PORT }}
           source: ./out/*
           target: public_html
-          strip_components: true
+          strip_components: 1
           debug: true
