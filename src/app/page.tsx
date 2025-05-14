@@ -33,16 +33,16 @@ export default function Home() {
                 <Link href="/work/project-1">
                   <div className="c-item__image">
                     <div className="intrinsic-image" style={{ paddingBottom: '60%' }}>
-                      <img src="https://placehold.co/600x400?text=Project+1" alt="Project 1" />
+                      <img src="https://placehold.co/600x400?text=Project+2" alt="Project 2" />
                     </div>
                   </div>
                 </Link>
               </figure>
               <div className="c-item__content">
                 <h2 className="c-item__title">
-                  <Link href="/work/project-1">Project 1</Link>
+                  <Link href="/work/project-1">Project 2</Link>
                 </h2>
-                <div className="c-item__text">Short description for Project 1.</div>
+                <div className="c-item__text">Short description for Project 2.</div>
               </div>
             </div>
           </div>
