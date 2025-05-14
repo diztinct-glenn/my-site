@@ -32,5 +32,5 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           port: 21
           protocol: ftp
-          local-dir: "./out/*"
+          local-dir: "./out/"
           server-dir: "/public_html"
