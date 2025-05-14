@@ -33,5 +33,4 @@ jobs:
           port: ${{ secrets.SFTP_PORT }}
           source: "./out/*"
           target: ${{ secrets.SFTP_PATH }}
-          strip_components: 1
           debug: true
