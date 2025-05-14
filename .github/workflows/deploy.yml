@@ -34,4 +34,3 @@ jobs:
           source: "./out/index.html"
           target: "/public_html/index.html"
           debug: true
-          rm: true
