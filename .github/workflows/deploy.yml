@@ -34,3 +34,4 @@ jobs:
           source: "./out/*"
           target: ${{ secrets.SFTP_PATH }}
           debug: true
+          rm: true
