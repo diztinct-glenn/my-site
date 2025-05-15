@@ -1,7 +1,7 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import Link from "next/link";
+import SlideNav from "@/components/SlideNav";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={`${outfit.variable} antialiased bg-white text-black`}>
         {/* m-intro at the very top */}
         <div
-          className="m-intro relative z-[100] bg-[#283618] text-white font-sans tracking-normal leading-[1.36364] text-[1.375rem] p-6 h-[calc(100vh-100px)]"
+          className="m-intro relative z-[100] bg-[#283618] text-white font-sans tracking-normal leading-[1.36364] text-[1.375rem] p-6 h-[calc(100vh-80px)]"
         >
           <div className="m-intro__inner inview--visible md:max-w-[75%] text-[#DDA15E] md:text-[52px]" data-inview="">
             <p>A creative developer passionate about design, technology, and building beautiful digital experiences.</p>
@@ -31,34 +31,17 @@ export default function RootLayout({
         </div>
         <div className="flex min-h-screen">
           <div className="flex-1">
-            {/* site-menu */}
-            <div className="site-menu fixed z-[50] top-0 right-0 transition-transform duration-300 tracking-normal text-[1.375rem] leading-[1] p-[20px]">
-              <a href="#" className="js-nav-trigger">Menu</a>
-            </div>
-            {/* l-nav (slide-out nav) */}
-            <nav className="l-nav fixed bottom-0 right-0 transition-all duration-500 h-[calc(100%-100px)] translate-x-[calc(100%+1px)] w-full z-[75] text-white tracking-normal leading-[1.36364] text-[1.375rem]">
-              <div className="l-nav__close">
-                <a href="#" className="js-nav-trigger--close">Close</a>
-              </div>
-              <div className="menu-primary-menu-container">
-                <ul id="menu-primary-menu" className="l-nav__menu">
-                  <li className="menu-item menu-item-home current-menu-item"><Link href="/">Work</Link></li>
-                  <li className="menu-item"><Link href="/about">About</Link></li>
-                  <li className="menu-item"><Link href="/thoughts">Thoughts</Link></li>
-                  <li className="menu-item"><Link href="/contact">Contact</Link></li>
-                </ul>
-              </div>
-            </nav>
+            <SlideNav />
             {/* site-main: l-header, l-main, l-sidebar as siblings */}
             <div className="site-main md:flex">
               <Header />
-              <main className="l-main p-[20px]">
+              <main className="l-main p-[20px] md:grow">
                 {children}
               </main>
-              <div className="l-sidebar">
-                <div className="c-down-arrow">
+              <div className="l-sidebar shrink-0 md:basis-[128px]">
+                <div className="c-down-arrow pt-[20px] pr-[20px] transition-opacity duration-300">
                   <a href="#" className="js-scroll-down">
-                    <svg viewBox="0 0 24.41 64.41" role="presentation" className="icon--icon-arrow-down">
+                    <svg viewBox="0 0 24.41 64.41" role="presentation" className="icon--icon-arrow-down w-[24px] h-[64px]">
                       <use xlinkHref="#icon-arrow-down"></use>
                     </svg>
                   </a>

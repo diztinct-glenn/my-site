@@ -64,12 +64,42 @@ body {
 }
 
 .set-height {
-  height: 60px;
+  @media (min-width: 768px) {
+    height: 60px;
+  }
 }
 
 
 @media (min-width: 768px) {
   .l-header {
     height: 100vh;
+  }
+}
+
+/* Prevent scroll when nav is open */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* Slide-out nav default state */
+.l-nav {
+  transform: translateX(calc(100% + 1px));
+}
+
+/* Slide-out nav open state */
+.l-nav.is-open {
+  transform: translateX(0);
+}
+
+/* At md and up, l-nav only covers to the right edge of header */
+@media (min-width: 768px) {
+  .l-nav {
+    left: 200px; /* header width at md */
+    width: calc(100vw - 200px);
+    max-width: calc(100vw - 200px);
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #fff2; /* subtle border for separation */
   }
 }

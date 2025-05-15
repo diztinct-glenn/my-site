@@ -11,7 +11,7 @@ export default function Home() {
               <figure className="c-item__media">
                 <Link href="/work/project-1">
                   <div className="c-item__image">
-                    <div className="intrinsic-image" style={{paddingBottom: '60%'}}>
+                    <div className="intrinsic-image">
                       <img src="https://placehold.co/600x400?text=Project+1" alt="Project 1" />
                     </div>
                   </div>
@@ -32,7 +32,7 @@ export default function Home() {
               <figure className="c-item__media">
                 <Link href="/work/project-1">
                   <div className="c-item__image">
-                    <div className="intrinsic-image" style={{ paddingBottom: '60%' }}>
+                    <div className="intrinsic-image">
                       <img src="https://placehold.co/600x400?text=Project+2" alt="Project 2" />
                     </div>
                   </div>
@@ -53,7 +53,7 @@ export default function Home() {
               <figure className="c-item__media">
                 <Link href="/work/project-3">
                   <div className="c-item__image">
-                    <div className="intrinsic-image" style={{ paddingBottom: '60%' }}>
+                    <div className="intrinsic-image">
                       <img src="https://placehold.co/600x400?text=Project+1" alt="Project 3" />
                     </div>
                   </div>
@@ -74,7 +74,7 @@ export default function Home() {
               <figure className="c-item__media">
                 <Link href="/work/project-4">
                   <div className="c-item__image">
-                    <div className="intrinsic-image" style={{ paddingBottom: '60%' }}>
+                    <div className="intrinsic-image">
                       <img src="https://placehold.co/600x400?text=Project+1" alt="Project 4" />
                     </div>
                   </div>
