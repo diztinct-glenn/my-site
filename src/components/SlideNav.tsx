@@ -17,7 +17,6 @@ export type SlideNavProps = {
 const defaultMenuItems: MenuItem[] = [
   { label: "Work", href: "/", isCurrent: true },
   { label: "About", href: "/about" },
-  { label: "Thoughts", href: "/thoughts" },
   { label: "Contact", href: "/contact" },
 ];
 

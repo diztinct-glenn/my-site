@@ -13,6 +13,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 export default function Header() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isContact = pathname === "/contact";
+  const isAbout = pathname === "/about";
   const headerRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLElement>(null);
 
@@ -65,23 +67,14 @@ export default function Header() {
           </Link>
         </p>
       </nav>
-      {/* TOP TITLES (hidden by default, shown contextually) */}
-      <p className={`l-header__title l-header__title--top l-header__title--contact${isHome ? " hidden" : ""}`}>
+      {/* BOTTOM TITLES (show only on their corresponding page) */}
+      <p className={`l-header__bottom l-header__title--contact absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500${isContact ? "" : " hidden"}`}>
         Contact
       </p>
-      <p className={`l-header__title l-header__title--top l-header__title--about${isHome ? " hidden" : ""}`}>
+      <p className={`l-header__bottom l-header__title--about absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500${isAbout ? "" : " hidden"}`}>
         About
       </p>
-      {/* BOTTOM TITLES (hidden by default, shown contextually) */}
-      <p className={`l-header__title l-header__title--bottom l-header__title--work${isHome ? " hidden" : ""}`}>
-        Work
-      </p>
-      <p className={`l-header__title l-header__title--bottom l-header__title--error hidden`}>404</p>
-      <p className={`l-header__title l-header__title--bottom l-header__title--thoughts${isHome ? " hidden" : ""}`}>
-        Thoughts
-      </p>
-      {/* TITLE BOTTOM (contextual) */}
-      <p className="l-header__bottom absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500">
+      <p className={`l-header__bottom l-header__title--work absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500${isHome ? "" : " hidden"}`}>
         Work
       </p>
     </header>

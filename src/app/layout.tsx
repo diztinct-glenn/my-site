@@ -2,6 +2,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import SlideNav from "@/components/SlideNav";
+import Intro from "@/components/Intro";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -21,14 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.variable} antialiased bg-white text-black`}>
-        {/* m-intro at the very top */}
-        <div
-          className="m-intro relative z-[100] bg-[#283618] text-white font-sans tracking-normal leading-[1.36364] text-[1.375rem] p-6 h-[calc(100vh-80px)]"
-        >
-          <div className="m-intro__inner inview--visible md:max-w-[75%] text-[#DDA15E] md:text-[52px]" data-inview="">
-            <p>A creative developer passionate about design, technology, and building beautiful digital experiences.</p>
-          </div>
-        </div>
+        <Intro />
         <div className="flex min-h-screen">
           <div className="flex-1">
             <SlideNav />
@@ -49,10 +43,8 @@ export default function RootLayout({
               </div>
             </div>
             <footer className="site-footer flex flex-col justify-end items-start transition-all duration-300 text-white px-6 py-10 h-[calc(100vh-64px)] tracking-normal leading-[1.36364] text-[1.375rem] bg-[#283618]">
-              <div>
-                Have a project you&apos;d like to talk about?<br />
-                <a href="mailto:glenn@example.com">Get in touch</a>
-              </div>
+              <p>Got a project in mind?</p>
+              <a href="mailto:glenn@example.com">Let's connect</a>
             </footer>
           </div>
         </div>
