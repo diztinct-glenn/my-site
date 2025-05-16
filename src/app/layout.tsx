@@ -44,7 +44,7 @@ export default function RootLayout({
             </div>
             <footer className="site-footer flex flex-col justify-end items-start transition-all duration-300 text-white px-6 py-10 h-[calc(100vh-64px)] tracking-normal leading-[1.36364] text-[1.375rem] bg-[#283618]">
               <p>Got a project in mind?</p>
-              <a href="mailto:glenn@example.com">Let's connect</a>
+              <a href="mailto:glenn@example.com">Let&apos;s connect</a>
             </footer>
           </div>
         </div>
