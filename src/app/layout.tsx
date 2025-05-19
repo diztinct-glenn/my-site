@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import SlideNav from "@/components/SlideNav";
 import Intro from "@/components/Intro";
+import DownArrow from "@/components/DownArrow";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -26,25 +27,19 @@ export default function RootLayout({
         <div className="flex min-h-screen">
           <div className="flex-1">
             <SlideNav />
-            {/* site-main: l-header, l-main, l-sidebar as siblings */}
-            <div className="site-main md:flex">
+            {/* site-main: header, main, sidebar */}
+            <div className="site-main md:flex relative">
               <Header />
-              <main className="l-main p-[20px] md:grow">
+              <main className="p-[20px] pb-[40px] md:py-[100px] md:grow">
                 {children}
               </main>
-              <div className="l-sidebar shrink-0 md:basis-[128px]">
-                <div className="c-down-arrow pt-[20px] pr-[20px] transition-opacity duration-300">
-                  <a href="#" className="js-scroll-down">
-                    <svg viewBox="0 0 24.41 64.41" role="presentation" className="icon--icon-arrow-down w-[24px] h-[64px]">
-                      <use xlinkHref="#icon-arrow-down"></use>
-                    </svg>
-                  </a>
-                </div>
+              <div className="shrink-0 md:basis-[15%] md:max-w-[200px] max-md:absolute max-md:top-0 max-md:right-0 max-md:z-50 max-md:h-16 max-md:flex max-md:items-center max-md:min-h-[80px]">
+                <DownArrow />
               </div>
             </div>
-            <footer className="site-footer flex flex-col justify-end items-start transition-all duration-300 text-white px-6 py-10 h-[calc(100vh-64px)] tracking-normal leading-[1.36364] text-[1.375rem] bg-[#283618]">
-              <p>Got a project in mind?</p>
-              <a href="mailto:glenn@example.com">Let&apos;s connect</a>
+            <footer className="flex flex-col justify-end items-start transition-all duration-300 text-white px-6 py-10 h-[calc(100vh-80px)] tracking-normal leading-[1.36364] text-[1.375rem] bg-[#283618]">
+              <p className="text-[#DDA15E] text-[30px] md:text-[52px]">Got a project in mind?</p>
+              <a className="text-[#DDA15E] text-[30px] md:text-[52px] underline hover:no-underline"  href="mailto:gbasgaard@gmail.com">Let&apos;s connect</a>
             </footer>
           </div>
         </div>

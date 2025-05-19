@@ -1,91 +1,78 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
       {/* block-projects (repeat as needed) */}
-      <div className="block-projects">
+      <div className="flex flex-col gap-[40px] xl:gap-[60px]">
         <div className="row">
-          <div className="columns small-12">
-            <div className="c-item is-autoplay inview--visible" data-inview="">
-              <figure className="c-item__media">
-                <Link href="/work/project-1">
-                  <div className="c-item__image">
-                    <div className="intrinsic-image">
-                      <img src="https://placehold.co/600x400?text=Project+1" alt="Project 1" />
-                    </div>
+          <div className="c-item is-autoplay inview--visible flex flex-col gap-[20px]" data-inview="">
+            <figure className="c-item__media">
+              <Link href="https://flateamshop.com/" target="_blank" className="inline-block">
+                <div className="c-item__image">
+                  <div className="intrinsic-image">
+                    <Image src="/florida-panthers.png" alt="Florida Panthers Team Shop" width={1314 } height={808} />
                   </div>
-                </Link>
-              </figure>
-              <div className="c-item__content">
-                <h2 className="c-item__title">
-                  <Link href="/work/project-1">Project 1</Link>
-                </h2>
-                <div className="c-item__text">Short description for Project 1.</div>
-              </div>
+                </div>
+              </Link>
+            </figure>
+            <div className="c-item__content">
+              <h2 className="c-item__title">
+                <Link className="text-[22px] lg:text-[36px]" href="https://flateamshop.com/" target="_blank">Florida Panthers Team Shop</Link>
+              </h2>
             </div>
           </div>
         </div>
         <div className="row">
-          <div className="columns small-12">
-            <div className="c-item is-autoplay inview--visible" data-inview="">
-              <figure className="c-item__media">
-                <Link href="/work/project-1">
-                  <div className="c-item__image">
-                    <div className="intrinsic-image">
-                      <img src="https://placehold.co/600x400?text=Project+2" alt="Project 2" />
-                    </div>
+          <div className="c-item is-autoplay inview--visible flex flex-col gap-[20px]" data-inview="">
+            <figure className="c-item__media">
+              <Link href="https://store.lucidmotors.com/" target="_blank" className="inline-block">
+                <div className="c-item__image">
+                  <div className="intrinsic-image">
+                    <Image src="/lucid-screenshot.png" alt="Lucid Motors" width={1000} height={1227} />
                   </div>
-                </Link>
-              </figure>
-              <div className="c-item__content">
-                <h2 className="c-item__title">
-                  <Link href="/work/project-2">Project 2</Link>
-                </h2>
-                <div className="c-item__text">Short description for Project 2.</div>
-              </div>
+                </div>
+              </Link>
+            </figure>
+            <div className="c-item__content">
+              <h2 className="c-item__title">
+                <Link className="text-[22px] lg:text-[36px]" href="https://store.lucidmotors.com/" target="_blank">Lucid Motors</Link>
+              </h2>
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="columns small-12">
-            <div className="c-item is-autoplay inview--visible" data-inview="">
-              <figure className="c-item__media">
-                <Link href="/work/project-3">
-                  <div className="c-item__image">
-                    <div className="intrinsic-image">
-                      <img src="https://placehold.co/600x400?text=Project+1" alt="Project 3" />
-                    </div>
+        <div className="row flex flex-col xl:flex-row gap-[40px] xl:gap-[20px]">
+          <div className="c-item is-autoplay inview--visible flex flex-col gap-[20px]" data-inview="">
+            <figure className="c-item__media">
+              <Link href="https://www.flyracing.com/" target="_blank" className="inline-block">
+                <div className="c-item__image">
+                  <div className="intrinsic-image">
+                    <Image src="/fly-racing.png" alt="Fly Racing" width={799} height={819} />
                   </div>
-                </Link>
-              </figure>
-              <div className="c-item__content">
-                <h2 className="c-item__title">
-                  <Link href="/work/project-3">Project 3</Link>
-                </h2>
-                <div className="c-item__text">Short description for Project 3.</div>
-              </div>
+                </div>
+              </Link>
+            </figure>
+            <div className="c-item__content">
+              <h2 className="c-item__title">
+                <Link className="text-[22px] lg:text-[36px]" href="https://www.flyracing.com/" target="_blank">Fly Racing</Link>
+              </h2>
             </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="columns small-12">
-            <div className="c-item is-autoplay inview--visible" data-inview="">
-              <figure className="c-item__media">
-                <Link href="/work/project-4">
-                  <div className="c-item__image">
-                    <div className="intrinsic-image">
-                      <img src="https://placehold.co/600x400?text=Project+1" alt="Project 4" />
-                    </div>
+          <div className="c-item is-autoplay inview--visible flex flex-col gap-[20px]" data-inview="">
+            <figure className="c-item__media">
+              <Link href="https://www.pompeii3.com/" target="_blank" className="inline-block">
+                <div className="c-item__image">
+                  <div className="intrinsic-image">
+                    <Image src="/pompeii-3.png" alt="Pompeii 3" width={799} height={820} />
                   </div>
-                </Link>
-              </figure>
-              <div className="c-item__content">
-                <h2 className="c-item__title">
-                  <Link href="/work/project-4">Project 4</Link>
-                </h2>
-                <div className="c-item__text">Short description for Project 4.</div>
-              </div>
+                </div>
+              </Link>
+            </figure>
+            <div className="c-item__content">
+              <h2 className="c-item__title">
+                <Link className="text-[22px] lg:text-[36px]" href="https://www.pompeii3.com/" target="_blank">Pompeii 3</Link>
+              </h2>
             </div>
           </div>
         </div>

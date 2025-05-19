@@ -23,7 +23,7 @@ export default function Header() {
     function setupScrollTrigger() {
       if (window.innerWidth >= 768) {
         st = ScrollTrigger.create({
-          trigger: ".l-header__flex-bottom",
+          trigger: ".header-flex-bottom",
           pin: true,
           start: "bottom 99%",
           end: "+=50%",
@@ -49,32 +49,33 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="top-0 z-50 leading-[30px] max-md:py-[10px] p-[20px] max-md:h-[80px] max-md:left-0 max-md:right-0 bg-white overflow-hidden sticky md:h-screen md:shrink-0 md:max-w-[200px] text-[22px] md:text-[36px] md:basis-[25%]"
+      className="top-0 z-50 leading-[30px] max-md:py-[10px] p-[20px] max-md:h-[80px] max-md:left-0 max-md:right-0 bg-white overflow-hidden sticky md:h-screen md:shrink-0 md:max-w-[200px] xl:max-w-[300px] text-[22px] md:text-[36px] md:basis-[25%] xl:basis-[30%]"
+      id="main-header"
     >
       <nav ref={navRef} aria-label="Header"
-        className="l-header__flex set-height flex md:flex-col md:justify-between will-change-[height] transition-[height] duration-500"
+        className="header-flex set-height flex flex-row md:flex-col md:justify-between max-md:gap-1 will-change-[height] transition-[height] duration-500"
       >
         {/* Glenn: always sticky at top */}
-        <p className="l-header__flex-top">
+        <p className="header-flex-top">
           <Link href="/" className="js-trigger-home">
             Glenn
           </Link>
         </p>
         {/* Basgaard: always at bottom via flexbox */}
-        <p className="l-header__flex-bottom">
+        <p className="header-flex-bottom">
           <Link href="/" className="js-trigger-home">
             Basgaard
           </Link>
         </p>
       </nav>
       {/* BOTTOM TITLES (show only on their corresponding page) */}
-      <p className={`l-header__bottom l-header__title--contact absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500${isContact ? "" : " hidden"}`}>
+      <p className={`header-bottom header-title-contact absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500${isContact ? "" : " hidden"}`}>
         Contact
       </p>
-      <p className={`l-header__bottom l-header__title--about absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500${isAbout ? "" : " hidden"}`}>
+      <p className={`header-bottom header-title-about absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500${isAbout ? "" : " hidden"}`}>
         About
       </p>
-      <p className={`l-header__bottom l-header__title--work absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500${isHome ? "" : " hidden"}`}>
+      <p className={`header-bottom header-title-work absolute md:bottom-[22px] md:left-[24px] transition-transform duration-500${isHome ? "" : " hidden"}`}>
         Work
       </p>
     </header>
