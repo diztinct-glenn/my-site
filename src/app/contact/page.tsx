@@ -30,7 +30,7 @@ export default function ContactPage() {
     <div className="max-w-3xl mx-auto">
       {submitted ? (
         <div className="bg-[#606C38] p-4 rounded-lg">
-          <p className="text-[#FEFAE0]">Thank you! Your message has been sent. We'll be in touch soon.</p>
+          <p className="text-[#FEFAE0]">Thank you! Your message has been sent. We&apos;ll be in touch soon.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
