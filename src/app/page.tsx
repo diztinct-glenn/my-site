@@ -30,7 +30,7 @@ export default function Home() {
               <Link href="https://store.lucidmotors.com/" target="_blank" className="inline-block">
                 <div className="c-item__image">
                   <div className="intrinsic-image">
-                    <Image src="/lucid-screenshot.png" alt="Lucid Motors" width={1000} height={1227} />
+                    <Image src="/lucid-screenshot.png" alt="Lucid Motors" width={1000} height={1227} className="shadow-md" />
                   </div>
                 </div>
               </Link>
