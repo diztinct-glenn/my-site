@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { FaGithub, FaLinkedin, FaSpotify, FaInstagram, FaXTwitter, FaGoodreads } from "react-icons/fa6";
+import { SiApplemusic } from "react-icons/si";
+
+
 
 export type MenuItem = {
   label: string;
@@ -54,7 +58,7 @@ export default function SlideNav({ menuItems = defaultMenuItems }: SlideNavProps
         <div className="l-nav__close absolute z-[52] top-0 right-0 max-md:text-black max-md:top-[-80px]">
           <a href="#" className="js-nav-trigger--close leading-[80px] inline-block px-[20px] md:text-[36px]" onClick={(e) => { e.preventDefault(); setNavOpen(false); }}>Close</a>
         </div>
-        <div className="menu-primary-menu-container leading-[40px] md:leading-[80px] text-[22px] md:text-[36px] max-md:py-[20px] px-[20px]">
+        <div className="menu-primary-menu-container flex flex-col justify-between h-full leading-[40px] md:leading-[80px] text-[22px] md:text-[36px] max-md:py-[20px] px-[20px] md:pb-[20px]">
           <ul id="menu-primary-menu" className="l-nav__menu">
             {menuItems.map((item) => (
               <li
@@ -65,6 +69,30 @@ export default function SlideNav({ menuItems = defaultMenuItems }: SlideNavProps
               </li>
             ))}
           </ul>
+          {/* Social Links Section */}
+          <div className="l-nav-social flex gap-[20px] text-[30px] md:text-[36px]">
+            <Link href="https://github.com/diztinct-glenn" passHref target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-[#DDA15E] transition-colors">
+              <FaGithub />
+            </Link>
+            <Link href="https://www.linkedin.com/in/glenn-basgaard/" passHref target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#DDA15E] transition-colors">
+              <FaLinkedin />
+            </Link>
+            <Link href="https://open.spotify.com/user/gbasgaard" passHref target="_blank" rel="noopener noreferrer" aria-label="Spotify" className="hover:text-[#DDA15E] transition-colors">
+              <FaSpotify />
+            </Link>
+            <Link href="https://music.apple.com/profile/gBasgaard" passHref target="_blank" rel="noopener noreferrer" aria-label="Apple Music" className="hover:text-[#DDA15E] transition-colors">
+              <SiApplemusic />
+            </Link>
+            <Link href="https://www.instagram.com/gbasgaard/" passHref target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#DDA15E] transition-colors">
+              <FaInstagram />
+            </Link>
+            <Link href="https://x.com/gbasgaard" passHref target="_blank" rel="noopener noreferrer" aria-label="X" className="hover:text-[#DDA15E] transition-colors">
+              <FaXTwitter />
+            </Link>
+            <Link href="https://www.goodreads.com/gbasgaard" passHref target="_blank" rel="noopener noreferrer" aria-label="Goodreads" className="hover:text-[#DDA15E] transition-colors">
+              <FaGoodreads />
+            </Link>
+          </div>
         </div>
       </nav>
     </>
