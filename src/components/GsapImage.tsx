@@ -41,19 +41,23 @@ export default function GsapImage(props: ImageProps) {
     }
   }, [hasLoaded]);
 
+  // Ensure alt is always a string (default to empty string if missing)
+  const { alt = "", ...rest } = props;
+
   return (
     <div
       ref={containerRef}
       style={{
         opacity: 0,
         transform: "translateY(40px)",
-        transition: "opacity 0.25s, transform 0.25s",
+        transition: "opacity 0.3s, transform 0.3s",
         willChange: "opacity, transform",
       }}
     >
       {isVisible && (
         <Image
-          {...props}
+          {...rest}
+          alt={alt}
           onLoad={() => setHasLoaded(true)}
           // @ts-ignore
           loading="lazy"
