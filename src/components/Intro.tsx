@@ -1,17 +1,18 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import SplitText from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, useGSAP);
 
 export default function Intro() {
   const pathname = usePathname();
   const pRef = useRef<HTMLParagraphElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (pathname !== "/") return;
     if (pRef.current) {
       const split = new SplitText(pRef.current as HTMLElement, { type: "words" });
@@ -24,7 +25,7 @@ export default function Intro() {
       });
       return () => split.revert();
     }
-  }, [pathname]);
+  }, { dependencies: [pathname], scope: pRef });
 
   if (pathname !== "/") return null;
   return (

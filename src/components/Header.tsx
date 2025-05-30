@@ -1,14 +1,15 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import Link from "next/link";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 
 export default function Header() {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     let st: ScrollTrigger | null = null;
     function setupScrollTrigger() {
       if (window.innerWidth >= 768) {
@@ -44,7 +45,7 @@ export default function Header() {
       if (st) st.kill();
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, { scope: headerRef });
 
   return (
     <header

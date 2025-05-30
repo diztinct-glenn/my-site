@@ -2,6 +2,9 @@
 import { useRef, useEffect, useState } from "react";
 import Image, { ImageProps } from "next/image";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 export default function GsapImage(props: ImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,7 +33,7 @@ export default function GsapImage(props: ImageProps) {
     return () => observer?.disconnect();
   }, []);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (hasLoaded && containerRef.current) {
       gsap.to(containerRef.current, {
         opacity: 1,
@@ -39,7 +42,7 @@ export default function GsapImage(props: ImageProps) {
         ease: "power3.out",
       });
     }
-  }, [hasLoaded]);
+  }, { dependencies: [hasLoaded], scope: containerRef });
 
   // Ensure alt is always a string (default to empty string if missing)
   const { alt = "", ...rest } = props;
