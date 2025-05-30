@@ -59,7 +59,6 @@ export default function GsapImage(props: ImageProps) {
           {...rest}
           alt={alt}
           onLoad={() => setHasLoaded(true)}
-          // @ts-ignore
           loading="lazy"
         />
       )}
