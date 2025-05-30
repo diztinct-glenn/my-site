@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import GsapImage from "../components/GsapImage";
 
 export default function Home() {
   return (
@@ -10,11 +10,7 @@ export default function Home() {
           <div className="c-item is-autoplay inview--visible flex flex-col gap-[20px]" data-inview="">
             <figure className="c-item__media">
               <Link href="https://flateamshop.com/" target="_blank" className="inline-block">
-                <div className="c-item__image">
-                  <div className="intrinsic-image">
-                    <Image src="/florida-panthers.png" alt="Florida Panthers Team Shop" width={1314 } height={808} />
-                  </div>
-                </div>
+                <GsapImage src="/florida-panthers.png" alt="Florida Panthers Team Shop" width={1314} height={808} />
               </Link>
             </figure>
             <div className="c-item__content">
@@ -28,11 +24,7 @@ export default function Home() {
           <div className="c-item is-autoplay inview--visible flex flex-col gap-[20px]" data-inview="">
             <figure className="c-item__media">
               <Link href="https://store.lucidmotors.com/" target="_blank" className="inline-block">
-                <div className="c-item__image">
-                  <div className="intrinsic-image">
-                    <Image src="/lucid-screenshot.png" alt="Lucid Motors" width={1000} height={1227} className="shadow-md" />
-                  </div>
-                </div>
+                <GsapImage src="/lucid-screenshot.png" alt="Lucid Motors" width={1000} height={1227} className="shadow-md" />
               </Link>
             </figure>
             <div className="c-item__content">
@@ -46,11 +38,7 @@ export default function Home() {
           <div className="c-item is-autoplay inview--visible flex flex-col gap-[20px]" data-inview="">
             <figure className="c-item__media">
               <Link href="https://www.flyracing.com/" target="_blank" className="inline-block">
-                <div className="c-item__image">
-                  <div className="intrinsic-image">
-                    <Image src="/fly-racing.png" alt="Fly Racing" width={799} height={819} />
-                  </div>
-                </div>
+                <GsapImage src="/fly-racing.png" alt="Fly Racing" width={799} height={819} />
               </Link>
             </figure>
             <div className="c-item__content">
@@ -62,11 +50,7 @@ export default function Home() {
           <div className="c-item is-autoplay inview--visible flex flex-col gap-[20px]" data-inview="">
             <figure className="c-item__media">
               <Link href="https://www.pompeii3.com/" target="_blank" className="inline-block">
-                <div className="c-item__image">
-                  <div className="intrinsic-image">
-                    <Image src="/pompeii-3.png" alt="Pompeii 3" width={799} height={820} />
-                  </div>
-                </div>
+                <GsapImage src="/pompeii-3.png" alt="Pompeii 3" width={799} height={820} />
               </Link>
             </figure>
             <div className="c-item__content">
