@@ -1,5 +1,6 @@
 import Link from "next/link";
 import GsapImage from "../components/GsapImage";
+import DrawUnderlineLink from "../components/DrawUnderlineLink";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
             </figure>
             <div className="c-item__content">
               <h2 className="c-item__title">
-                <Link className="text-[22px] lg:text-[36px]" href="https://flateamshop.com/" target="_blank">Florida Panthers Team Shop</Link>
+                <DrawUnderlineLink className="text-[22px] lg:text-[36px]" href="https://flateamshop.com/" target="_blank">Florida Panthers Team Shop</DrawUnderlineLink>
               </h2>
             </div>
           </div>
@@ -29,7 +30,7 @@ export default function Home() {
             </figure>
             <div className="c-item__content">
               <h2 className="c-item__title">
-                <Link className="text-[22px] lg:text-[36px]" href="https://store.lucidmotors.com/" target="_blank">Lucid Motors</Link>
+                <DrawUnderlineLink className="text-[22px] lg:text-[36px]" href="https://store.lucidmotors.com/" target="_blank">Lucid Motors</DrawUnderlineLink>
               </h2>
             </div>
           </div>
@@ -43,7 +44,7 @@ export default function Home() {
             </figure>
             <div className="c-item__content">
               <h2 className="c-item__title">
-                <Link className="text-[22px] lg:text-[36px]" href="https://www.flyracing.com/" target="_blank">Fly Racing</Link>
+                <DrawUnderlineLink className="text-[22px] lg:text-[36px]" href="https://www.flyracing.com/" target="_blank">Fly Racing</DrawUnderlineLink>
               </h2>
             </div>
           </div>
@@ -55,7 +56,7 @@ export default function Home() {
             </figure>
             <div className="c-item__content">
               <h2 className="c-item__title">
-                <Link className="text-[22px] lg:text-[36px]" href="https://www.pompeii3.com/" target="_blank">Pompeii 3</Link>
+                <DrawUnderlineLink className="text-[22px] lg:text-[36px]" href="https://www.pompeii3.com/" target="_blank">Pompeii 3</DrawUnderlineLink>
               </h2>
             </div>
           </div>
