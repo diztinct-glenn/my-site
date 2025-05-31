@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import SplitText from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
 gsap.registerPlugin(SplitText, useGSAP);
 
@@ -79,14 +80,14 @@ export default function Footer() {
       <p ref={pRef} className="text-[#DDA15E] text-[30px] md:text-[52px]" style={{ opacity: ready ? 1 : 0 }}>
         Got a project in mind?
       </p>
-      <a
+      <Link
         ref={aRef}
         className="text-[#DDA15E] text-[30px] md:text-[52px] underline hover:no-underline"
-        href="mailto:gbasgaard@gmail.com"
+        href="/contact"
         style={{ opacity: ready ? 1 : 0 }}
       >
         Let&apos;s connect
-      </a>
+      </Link>
     </footer>
   );
 }
