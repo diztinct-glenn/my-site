@@ -94,13 +94,13 @@ const DrawUnderlineLink: React.FC<DrawUnderlineLinkProps> = ({
   }, []);
 
   // Mobile touch handlers
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+  const handleTouchStart = useCallback(() => {
     handleEnter();
   }, [handleEnter]);
-  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+  const handleTouchEnd = useCallback(() => {
     handleLeave();
   }, [handleLeave]);
-  const handleTouchCancel = useCallback((e: React.TouchEvent) => {
+  const handleTouchCancel = useCallback(() => {
     handleLeave();
   }, [handleLeave]);
 
