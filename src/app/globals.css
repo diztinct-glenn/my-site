@@ -85,3 +85,15 @@ body.nav-open {
     max-width: calc(100vw - 300px);
   }
 }
+
+.intro-text {
+  opacity: 1;
+}
+
+a .split-word {
+  text-decoration: underline;
+}
+
+a:hover .split-word {
+  text-decoration: none;
+}

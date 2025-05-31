@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import SlideNav from "@/components/SlideNav";
 import Intro from "@/components/Intro";
 import DownArrow from "@/components/DownArrow";
+import Footer from "@/components/Footer";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -37,10 +38,7 @@ export default function RootLayout({
                 <DownArrow />
               </div>
             </div>
-            <footer className="flex flex-col justify-end items-start transition-all duration-300 text-white px-6 py-10 h-[calc(100vh-80px)] tracking-normal leading-[1.36364] text-[1.375rem] bg-[#283618]">
-              <p className="text-[#DDA15E] text-[30px] md:text-[52px]">Got a project in mind?</p>
-              <a className="text-[#DDA15E] text-[30px] md:text-[52px] underline hover:no-underline"  href="mailto:gbasgaard@gmail.com">Let&apos;s connect</a>
-            </footer>
+            <Footer />
           </div>
         </div>
       </body>
