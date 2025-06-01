@@ -31,14 +31,11 @@ export default function Intro() {
 
   if (pathname !== "/") return null;
   return (
-    <div
-      className="intro relative z-[52] bg-[#283618] text-white font-sans tracking-normal leading-[1.36364] text-[1.375rem] p-6 h-[calc(100vh-80px)] md:h-[calc(100vh-100px)]"
+    <div className="intro relative z-[52] bg-[#283618] text-white font-sans tracking-normal leading-[1.36364] text-[1.375rem] p-6 h-[calc(100vh-80px)] md:h-[calc(100vh-100px)]"
     >
-      <div className="inview--visible md:max-w-[75%] text-[#DDA15E] text-[30px] md:text-[52px]" data-inview="">
-        <p ref={pRef} className="intro-text" style={{ opacity: ready ? 1 : 0 }}>
-          Part designer, part engineer. All about making the internet a more beautiful place. I build fast, accessible, and delightful web experiences. I sweat the small stuff so you don&apos;t have to. Thoughtful work, built to be felt.
-        </p>
-      </div>
+      <p ref={pRef} className="intro-textmd:max-w-[75%] text-[#DDA15E] text-[30px] md:text-[52px] sticky top-0" style={{ opacity: ready ? 1 : 0 }}>
+        Part designer, part engineer. All about making the internet a more beautiful place. I build fast, accessible, and delightful web experiences. I sweat the small stuff so you don&apos;t have to. Thoughtful work, built to be felt.
+      </p>
     </div>
   );
 }

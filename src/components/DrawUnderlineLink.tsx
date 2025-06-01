@@ -105,28 +105,26 @@ const DrawUnderlineLink: React.FC<DrawUnderlineLinkProps> = ({
   }, [handleLeave]);
 
   return (
-    <Link href={href} legacyBehavior>
-      <a
-        ref={linkRef}
-        className={`relative inline-block group ${className}`}
-        target={target}
-        rel={rel || (target === "_blank" ? "noopener noreferrer" : undefined)}
-        {...rest}
-        onMouseEnter={handleEnter}
-        onFocus={handleEnter}
-        onMouseLeave={handleLeave}
-        onBlur={handleLeave}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        onTouchCancel={handleTouchCancel}
-        style={{ textDecoration: "none", position: "relative", display: "inline-block" }}
-      >
-        <span className="relative z-10">{children}</span>
-        <div
-          ref={svgBoxRef}
-          style={{ position: "absolute", left: 0, bottom: 0, width: "100%", height: "0.7em", pointerEvents: "none", color: "#DDA15E" }}
-        />
-      </a>
+    <Link
+      href={href}
+      ref={linkRef}
+      className={`relative inline-block no-underline group ${className}`}
+      target={target}
+      rel={rel || (target === "_blank" ? "noopener noreferrer" : undefined)}
+      {...rest}
+      onMouseEnter={handleEnter}
+      onFocus={handleEnter}
+      onMouseLeave={handleLeave}
+      onBlur={handleLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchCancel}
+    >
+      <span className="relative z-10">{children}</span>
+      <div
+        ref={svgBoxRef}
+        className="absolute left-0 bottom-0 w-full text-[#DDa15E] h-[20px] pointer-events-none"
+      />
     </Link>
   );
 };

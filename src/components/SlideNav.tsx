@@ -6,8 +6,6 @@ import { usePathname } from "next/navigation";
 import { FaGithub, FaLinkedin, FaSpotify, FaInstagram, FaXTwitter, FaGoodreads } from "react-icons/fa6";
 import { SiApplemusic } from "react-icons/si";
 
-
-
 export type MenuItem = {
   label: string;
   href: string;
@@ -51,15 +49,15 @@ export default function SlideNav({ menuItems = defaultMenuItems }: SlideNavProps
       <div
         className={`site-menu fixed z-[51] top-0 right-0 transition-transform duration-300 tracking-normal text-[22px] md:text-[36px]${navOpen ? ' max-md:hidden' : ''}`}
       >
-        <a href="#" className="js-nav-trigger inline-block leading-[80px] px-[20px]" onClick={(e) => { e.preventDefault(); setNavOpen(true); }}>Menu</a>
+        <a href="#" className="inline-block leading-[80px] px-[20px]" onClick={(e) => { e.preventDefault(); setNavOpen(true); }}>Menu</a>
       </div>
       {/* l-nav (slide-out nav) */}
       <nav className={`l-nav fixed bottom-0 right-0 transition-all duration-500 h-[calc(100%-80px)] md:h-screen w-full z-[75] text-white bg-[#283618]${navOpen ? ' is-open' : ''}`} style={{ transform: navOpen ? 'translateX(0)' : 'translateX(calc(100% + 1px))' }}>
-        <div className="l-nav__close absolute z-[52] top-0 right-0 max-md:text-black max-md:top-[-80px]">
-          <a href="#" className="js-nav-trigger--close leading-[80px] inline-block px-[20px] md:text-[36px]" onClick={(e) => { e.preventDefault(); setNavOpen(false); }}>Close</a>
+        <div className="absolute z-[52] top-0 right-0 max-md:text-black max-md:top-[-80px]">
+          <a href="#" className="leading-[80px] inline-block px-[20px] text-[22px] md:text-[36px]" onClick={(e) => { e.preventDefault(); setNavOpen(false); }}>Close</a>
         </div>
-        <div className="menu-primary-menu-container flex flex-col justify-between h-full leading-[40px] md:leading-[80px] text-[22px] md:text-[36px] max-md:py-[20px] px-[20px] md:pb-[20px]">
-          <ul id="menu-primary-menu" className="l-nav__menu">
+        <div className="flex flex-col justify-between h-full leading-[40px] md:leading-[80px] text-[22px] md:text-[36px] max-md:py-[20px] px-[20px] md:pb-[20px]">
+          <ul>
             {menuItems.map((item) => (
               <li
                 key={item.href}
@@ -70,7 +68,7 @@ export default function SlideNav({ menuItems = defaultMenuItems }: SlideNavProps
             ))}
           </ul>
           {/* Social Links Section */}
-          <div className="l-nav-social flex gap-[20px] text-[30px] md:text-[36px]">
+          <div className="flex gap-[20px] text-[30px] md:text-[36px]">
             <Link href="https://github.com/diztinct-glenn" passHref target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-[#DDA15E] transition-colors">
               <FaGithub />
             </Link>
