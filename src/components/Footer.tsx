@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import SplitText from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
+import DrawUnderlineLink from "./DrawUnderlineLink";
 
 gsap.registerPlugin(SplitText, useGSAP);
 
@@ -80,14 +81,13 @@ export default function Footer() {
       <p ref={pRef} className="text-[#DDA15E] text-[30px] md:text-[52px]" style={{ opacity: ready ? 1 : 0 }}>
         Got a project in mind?
       </p>
-      <Link
-        ref={aRef}
-        className="text-[#DDA15E] text-[30px] md:text-[52px] underline hover:no-underline"
+      <DrawUnderlineLink
+        className="text-[#DDA15E] text-[30px] md:text-[52px]"
         href="/contact"
         style={{ opacity: ready ? 1 : 0 }}
       >
         Let&apos;s connect
-      </Link>
+      </DrawUnderlineLink>
     </footer>
   );
 }

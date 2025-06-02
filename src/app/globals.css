@@ -84,11 +84,3 @@ body.nav-open {
 .intro-text {
   opacity: 1;
 }
-
-a .split-word {
-  text-decoration: underline;
-}
-
-a:hover .split-word {
-  text-decoration: none;
-}
