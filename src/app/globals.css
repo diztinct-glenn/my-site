@@ -58,12 +58,7 @@ body.nav-open {
 
 /* Slide-out nav default state */
 .l-nav {
-  transform: translateX(calc(100% + 1px));
-}
-
-/* Slide-out nav open state */
-.l-nav.is-open {
-  transform: translateX(0);
+  visibility: hidden;
 }
 
 /* At md and up, l-nav only covers to the right edge of header */
