@@ -5,6 +5,7 @@ import SlideNav from "@/components/SlideNav";
 import Intro from "@/components/Intro";
 import DownArrow from "@/components/DownArrow";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.variable} antialiased bg-white text-black`}>
+        <ScrollToTop />
         <Intro />
         <div className="flex min-h-screen">
           <div className="flex-1">
