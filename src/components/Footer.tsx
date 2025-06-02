@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import SplitText from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
-import Link from "next/link";
 import DrawUnderlineLink from "./DrawUnderlineLink";
 
 gsap.registerPlugin(SplitText, useGSAP);

@@ -32,6 +32,7 @@ export default function SlideNav({ menuItems = defaultMenuItems }: SlideNavProps
   const navRef = useRef<HTMLDivElement>(null);
   const panelRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
   const contentRef = useRef<HTMLDivElement>(null);
+  const siteMenuRef = useRef<HTMLDivElement>(null);
 
   // Prevent body scroll when nav is open
   useEffect(() => {
@@ -56,6 +57,7 @@ export default function SlideNav({ menuItems = defaultMenuItems }: SlideNavProps
     gsap.set(navRef.current, { xPercent: 100, visibility: "visible" });
     gsap.set(panelRefs.map(ref => ref.current), { xPercent: 100, opacity: 0 });
     gsap.set(contentRef.current, { opacity: 0, y: 40 });
+    gsap.set(siteMenuRef.current, { y: "0%" });
   }, []);
 
   useGSAP(() => {
@@ -77,6 +79,12 @@ export default function SlideNav({ menuItems = defaultMenuItems }: SlideNavProps
             ease: "power4.out"
           });
         }
+      });
+      // Animate site-menu out (up)
+      gsap.to(siteMenuRef.current, {
+        y: "-100%",
+        duration: 0.5,
+        ease: "power4.inOut"
       });
     } else {
       // Animate content out
@@ -103,6 +111,12 @@ export default function SlideNav({ menuItems = defaultMenuItems }: SlideNavProps
           });
         }
       });
+      // Animate site-menu back in (down)
+      gsap.to(siteMenuRef.current, {
+        y: "0%",
+        duration: 0.5,
+        ease: "power4.inOut"
+      });
     }
   }, [navOpen]);
 
@@ -110,7 +124,8 @@ export default function SlideNav({ menuItems = defaultMenuItems }: SlideNavProps
     <>
       {/* site-menu */}
       <div
-        className={`site-menu fixed z-[51] top-0 right-0 transition-transform duration-300 px-[20px] tracking-normal text-[22px] md:text-[36px]${navOpen ? ' max-md:hidden' : ''}`}
+        ref={siteMenuRef}
+        className={"site-menu fixed z-[51] top-0 right-0 transition-transform duration-300 px-[20px] tracking-normal text-[22px] md:text-[36px]"}
       >
         <DrawUnderlineLink href="#" className="inline-block leading-[80px]" onClick={(e) => { e.preventDefault(); setNavOpen(true); }}>Menu</DrawUnderlineLink>
       </div>
