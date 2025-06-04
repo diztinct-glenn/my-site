@@ -6,6 +6,7 @@ import Intro from "@/components/Intro";
 import DownArrow from "@/components/DownArrow";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import CustomCursor from "@/components/CustomCursor";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -24,7 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} antialiased bg-white text-black`}>
+      <body className={`${outfit.variable} antialiased bg-[#FEFAE0] text-black`}>
+        <CustomCursor />
         <ScrollToTop />
         <Intro />
         <div className="flex min-h-screen">

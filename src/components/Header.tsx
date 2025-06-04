@@ -50,7 +50,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="top-0 z-50 leading-[30px] max-md:py-[10px] p-[20px] max-md:h-[80px] max-md:left-0 max-md:right-0 bg-white overflow-hidden sticky md:h-screen md:shrink-0 md:max-w-[200px] xl:max-w-[300px] text-[22px] md:text-[36px] md:basis-[25%] xl:basis-[30%]"
+      className="top-0 z-50 leading-[30px] max-md:py-[10px] p-[20px] max-md:h-[80px] max-md:left-0 max-md:right-0 bg-[#FEFAE0] overflow-hidden sticky md:h-screen md:shrink-0 md:max-w-[200px] xl:max-w-[300px] text-[22px] md:text-[36px] md:basis-[25%] xl:basis-[30%]"
       id="main-header"
     >
       <nav ref={navRef} aria-label="Header"

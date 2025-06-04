@@ -52,9 +52,8 @@ export default function GsapImage(props: ImageProps) {
       ref={containerRef}
       style={{
         opacity: 0,
-        transform: "translateY(40px)",
-        transition: "opacity 0.3s, transform 0.3s",
-        willChange: "opacity, transform",
+        transition: "opacity 0.5s",
+        willChange: "opacity",
       }}
     >
       {isVisible && (
