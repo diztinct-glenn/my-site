@@ -118,7 +118,7 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
     init() {
       this.points = [];
       for (let i = 0; i < this.numPoints; i++) {
-        let point = new Point(this.divisional * (i + 1), this);
+        const point = new Point(this.divisional * (i + 1), this);
         this.push(point);
       }
     }
