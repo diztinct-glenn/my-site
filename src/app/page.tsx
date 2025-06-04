@@ -1,6 +1,6 @@
 import Link from "next/link";
-import GsapImage from "../components/GsapImage";
-import DrawUnderlineLink from "../components/DrawUnderlineLink";
+import GsapImage from "@/components/GsapImage";
+import DrawUnderlineLink from "@/components/DrawUnderlineLink";
 
 export default function Home() {
   return (

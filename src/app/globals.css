@@ -84,3 +84,13 @@ body.nav-open {
 .intro-text {
   opacity: 1;
 }
+
+.col {
+  align-self: flex-start;
+  justify-self: flex-start;
+}
+
+.col:nth-child(2) {
+  align-self: flex-end;
+  justify-self: flex-end;
+}
