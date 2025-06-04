@@ -7,21 +7,9 @@ interface BlobCanvasProps {
   height?: number;
   style?: React.CSSProperties;
   className?: string;
-  /**
-   * Horizontal offset for image crop center, as a percentage of crop width (-0.5 to 0.5). Negative = shift left, positive = shift right.
-   */
-  centerOffsetX?: number;
-  /**
-   * Vertical offset for image crop center, as a percentage of crop height (-0.5 to 0.5). Negative = shift up, positive = shift down.
-   */
-  centerOffsetY?: number;
-  /**
-   * Zoom factor for the image crop. 1 = normal, <1 = zoom out (image smaller), >1 = zoom in (image larger).
-   */
-  zoom?: number;
 }
 
-export default function BlobCanvas({ imageSrc, width, height, style, className, centerOffsetX = 0, centerOffsetY = 0, zoom = 1 }: BlobCanvasProps) {
+export default function BlobCanvas({ imageSrc, width, height, style, className }: BlobCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const blobRef = useRef<Blob | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
