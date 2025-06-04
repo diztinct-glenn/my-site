@@ -231,20 +231,14 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
     function setCanvasSize(): { w: number, h: number } {
       let w: number = 150;
       let h: number = 150;
+      const parent = canvas?.parentElement;
       if (typeof width === 'number' && !isNaN(width) && typeof height === 'number' && !isNaN(height)) {
         w = width;
         h = height;
-      } else if (window.innerWidth >= 768) {
-        // Use parent size for md+
-        const parent = canvas?.parentElement;
-        if (parent) {
-          const rect = parent.getBoundingClientRect();
-          w = rect.width > 0 ? rect.width : 340;
-          h = rect.height > 0 ? rect.height : 340;
-        } else {
-          w = 340;
-          h = 340;
-        }
+      } else if (parent) {
+        const rect = parent.getBoundingClientRect();
+        w = rect.width > 0 ? rect.width : 150;
+        h = rect.height > 0 ? rect.height : 150;
       }
       // Always use the minimum of w and h for a square canvas
       const size = Math.min(w, h);
