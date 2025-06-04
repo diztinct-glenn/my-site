@@ -6,7 +6,6 @@ import Intro from "@/components/Intro";
 import DownArrow from "@/components/DownArrow";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import MainWrapper from "@/components/MainWrapper";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -34,9 +33,9 @@ export default function RootLayout({
             {/* site-main: header, main, sidebar */}
             <div className="site-main md:flex relative">
               <Header />
-              <MainWrapper>
+              <main className="p-[20px] pb-[40px] md:py-[100px] md:grow">
                 {children}
-              </MainWrapper>
+              </main>
               <div className="shrink-0 md:basis-[15%] md:max-w-[200px] max-md:absolute max-md:top-0 max-md:right-0 max-md:z-50 max-md:h-16 max-md:flex max-md:items-center max-md:min-h-[80px]">
                 <DownArrow />
               </div>
