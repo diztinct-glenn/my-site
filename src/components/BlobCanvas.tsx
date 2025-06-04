@@ -312,7 +312,7 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
           const strength = { x: oldMousePoint.x - x, y: oldMousePoint.y - y };
           let s = Math.sqrt(strength.x * strength.x + strength.y * strength.y) * 10;
           if (s > 100) s = 100;
-          nearestPoint.acceleration = (s / 300) * (hover ? -1 : 1);
+          (nearestPoint as Point).acceleration = (s / 300) * (hover ? -1 : 1);
         }
       }
       oldMousePoint.x = x;
