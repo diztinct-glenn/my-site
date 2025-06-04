@@ -23,12 +23,12 @@ interface BlobCanvasProps {
 
 export default function BlobCanvas({ imageSrc, width, height, style, className, centerOffsetX = 0, centerOffsetY = 0, zoom = 1 }: BlobCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const blobRef = useRef<any>(null);
+  const blobRef = useRef<Blob | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
 
   // Blob and Point classes (adapted from provided JS)
   class Point {
-    parent: any;
+    parent: Blob;
     azimuth: number;
     _components: { x: number; y: number };
     _acceleration = 0;
@@ -36,7 +36,7 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
     _radialEffect = 0;
     _elasticity = 0.001;
     _friction = 0.0085;
-    constructor(azimuth: number, parent: any) {
+    constructor(azimuth: number, parent: Blob) {
       this.parent = parent;
       this.azimuth = Math.PI - azimuth;
       this._components = {
@@ -45,7 +45,7 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
       };
       this.acceleration = -0.3 + Math.random() * 0.6;
     }
-    solveWith(leftPoint: any, rightPoint: any) {
+    solveWith(leftPoint: Point, rightPoint: Point) {
       this.acceleration =
         (-0.3 * this.radialEffect + (leftPoint.radialEffect - this.radialEffect) + (rightPoint.radialEffect - this.radialEffect)) *
           this.elasticity -
@@ -130,22 +130,22 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
       const pointsArray = this.points;
       const points = this.numPoints;
       pointsArray[0].solveWith(pointsArray[points - 1], pointsArray[1]);
-      let p0 = pointsArray[points - 1].position;
+      const p0 = pointsArray[points - 1].position;
       let p1 = pointsArray[0].position;
-      let _p2 = p1;
+      const _p2 = p1;
       ctx.save();
       ctx.beginPath();
       ctx.moveTo((p0.x + p1.x) / 2, (p0.y + p1.y) / 2);
       for (let i = 1; i < points; i++) {
         pointsArray[i].solveWith(pointsArray[i - 1], pointsArray[i + 1] || pointsArray[0]);
-        let p2 = pointsArray[i].position;
-        var xc = (p1.x + p2.x) / 2;
-        var yc = (p1.y + p2.y) / 2;
+        const p2 = pointsArray[i].position;
+        const xc = (p1.x + p2.x) / 2;
+        const yc = (p1.y + p2.y) / 2;
         ctx.quadraticCurveTo(p1.x, p1.y, xc, yc);
         p1 = p2;
       }
-      var xc = (p1.x + _p2.x) / 2;
-      var yc = (p1.y + _p2.y) / 2;
+      const xc = (p1.x + _p2.x) / 2;
+      const yc = (p1.y + _p2.y) / 2;
       ctx.quadraticCurveTo(p1.x, p1.y, xc, yc);
       ctx.closePath();
       ctx.clip();
@@ -180,7 +180,7 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
 
       requestAnimationFrame(this.render);
     };
-    push(item: any) {
+    push(item: Point) {
       if (item instanceof Point) {
         this.points.push(item);
       }
@@ -278,24 +278,24 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
     };
     imgRef.current = img;
     // CodePen-style ripple: only affect nearest point on pointer move
-    let oldMousePoint = { x: 0, y: 0 };
+    const oldMousePoint = { x: 0, y: 0 };
     let hover = false;
     function pointerMove(e: PointerEvent) {
       if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      let pos = blob.center;
-      let diff = { x: x - pos.x, y: y - pos.y };
-      let dist = Math.sqrt(diff.x * diff.x + diff.y * diff.y);
+      const pos = blob.center;
+      const diff = { x: x - pos.x, y: y - pos.y };
+      const dist = Math.sqrt(diff.x * diff.x + diff.y * diff.y);
       let angle: number | null = null;
       blob.mousePos = { x: pos.x - x, y: pos.y - y };
       if (dist < blob._radius && hover === false) {
-        let vector = { x: x - pos.x, y: y - pos.y };
+        const vector = { x: x - pos.x, y: y - pos.y };
         angle = Math.atan2(vector.y, vector.x);
         hover = true;
       } else if (dist > blob._radius && hover === true) {
-        let vector = { x: x - pos.x, y: y - pos.y };
+        const vector = { x: x - pos.x, y: y - pos.y };
         angle = Math.atan2(vector.y, vector.x);
         hover = false;
       }
@@ -304,15 +304,15 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
         let distanceFromPoint = 100;
         (blob.points as Point[]).forEach((point: Point) => {
           if (Math.abs(angle! - point.azimuth) < distanceFromPoint) {
-            nearestPoint = point as Point;
+            nearestPoint = point;
             distanceFromPoint = Math.abs(angle! - point.azimuth);
           }
         });
-        if (nearestPoint) {
-          let strength = { x: oldMousePoint.x - x, y: oldMousePoint.y - y };
+        if (nearestPoint !== null) {
+          const strength = { x: oldMousePoint.x - x, y: oldMousePoint.y - y };
           let s = Math.sqrt(strength.x * strength.x + strength.y * strength.y) * 10;
           if (s > 100) s = 100;
-          (nearestPoint as Point).acceleration = (s / 300) * (hover ? -1 : 1);
+          nearestPoint.acceleration = (s / 300) * (hover ? -1 : 1);
         }
       }
       oldMousePoint.x = x;
