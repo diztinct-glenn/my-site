@@ -154,26 +154,12 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
         const img = this.image;
         const canvas = this.canvas;
         if (img && canvas) {
-          const imgAspect = img.width / img.height;
-          const canvasAspect = canvas.width / canvas.height;
-          // Calculate crop area based on aspect ratio
-          let cropW, cropH;
-          if (imgAspect > canvasAspect) {
-            // Image is wider than canvas: crop sides
-            cropH = img.height;
-            cropW = cropH * canvasAspect;
-          } else {
-            // Image is taller than canvas: crop top/bottom
-            cropW = img.width;
-            cropH = cropW / canvasAspect;
-          }
-          // Apply zoom to both dimensions
-          cropW = cropW / zoom;
-          cropH = cropH / zoom;
-          // Center, then apply offsets
-          const sx = (img.width - cropW) / 2 + centerOffsetX * cropW;
-          const sy = (img.height - cropH) / 2 + centerOffsetY * cropH;
-          ctx.drawImage(img, sx, sy, cropW, cropH, 0, 0, canvas.width, canvas.height);
+          // Always use the full image and full canvas, centered
+          ctx.drawImage(
+            img,
+            0, 0, img.width, img.height, // source: full image
+            0, 0, canvas.width, canvas.height // dest: full canvas
+          );
         }
       }
       ctx.restore();
@@ -228,7 +214,7 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    function setCanvasSize(): { w: number, h: number } {
+    function setCanvasSize(): { cssW: number, cssH: number, deviceW: number, deviceH: number } {
       let w: number = 150;
       let h: number = 150;
       const parent = canvas?.parentElement;
@@ -240,23 +226,18 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
         w = rect.width > 0 ? rect.width : 150;
         h = rect.height > 0 ? rect.height : 150;
       }
-      // Always use the minimum of w and h for a square canvas
-      const size = Math.min(w, h);
+      // Always use the minimum of w and h for a square canvas, rounded to integer
+      const size = Math.round(Math.min(w, h));
       if (canvas) {
-        const dpr = window.devicePixelRatio || 1;
-        canvas.width = size * dpr;
-        canvas.height = size * dpr;
+        canvas.width = size;
+        canvas.height = size;
         canvas.style.width = `${size}px`;
         canvas.style.height = `${size}px`;
-        const ctx = canvas.getContext("2d");
-        if (ctx) {
-          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
       }
-      return { w: size, h: size };
+      return { cssW: size, cssH: size, deviceW: size, deviceH: size };
     }
-    const { w, h } = setCanvasSize();
-    const blob = new Blob(w, h);
+    const { cssW, cssH } = setCanvasSize();
+    const blob = new Blob(cssW, cssH);
     blob.canvas = canvas;
     blob.numPoints = 32;
     blob.position = { x: 0.5, y: 0.5 };
@@ -266,7 +247,6 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
     const img = new window.Image();
     img.src = imageSrc;
     img.onload = () => {
-      console.log('Image loaded', img.width, img.height);
       blob.image = img;
       blob.render();
     };
@@ -317,11 +297,11 @@ export default function BlobCanvas({ imageSrc, width, height, style, className, 
     }
     // Responsive resize
     function handleResize() {
-      const { w, h } = setCanvasSize();
+      const { cssW, cssH } = setCanvasSize();
       if (blob) {
-        blob.cssWidth = w;
-        blob.cssHeight = h;
-        blob.setRadius(Math.min(w, h) / 2 - 10);
+        blob.cssWidth = cssW;
+        blob.cssHeight = cssH;
+        blob.setRadius(Math.min(cssW, cssH) / 2 - 10);
       }
     }
     window.addEventListener("resize", handleResize);

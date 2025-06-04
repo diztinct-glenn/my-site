@@ -42,7 +42,7 @@ export default function Intro() {
         style={{ aspectRatio: '1 / 1' }}
       >
         <div className="w-[150px] h-[150px] md:w-full md:h-auto aspect-square">
-          <BlobCanvas imageSrc="/glenn.jpg" centerOffsetX={0.24} centerOffsetY={0.02} zoom={0.8} />
+          <BlobCanvas imageSrc="/glenn.jpg" centerOffsetX={0} centerOffsetY={0} zoom={1} />
         </div>
       </div>
     </div>
